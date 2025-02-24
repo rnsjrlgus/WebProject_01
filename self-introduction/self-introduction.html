@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KWONKIHYUN</title>
+  <link rel="icon" type="image/png" href="../imgs/favicon.png">
+  <script src="./script.js" defer></script>
+  <style>
+    * {
+      margin : 0; /* 모든 요소의 마진 0으로 초기화 */
+      box-sizing: border-box; /* 패딩과 테두리를 요소의 크기에 포함 */
+      list-style-type: none; /* 목록의 기본 마커(불릿) 제거 */
+      text-decoration: none; /* 텍스트 장식(밑줄 등) 제거 */
+      color: #30333b; /* 기본 텍스트 색상 설정 */
+    }
+
+    body {
+      transform-origin : top left; /* 축소 기준을 좌상단으로 설정 */
+      transform : scale(1); /* 기본 크기 */
+      width: 100%; /* 전체 너비 사용 */
+      display: flex; /* flex container 로 설정 */
+      flex-direction: column; /* 세로 방향 정렬 */
+      justify-content: center; /* 가로축 중앙 정렬 */
+      align-items: center; /* 세로축 중앙 정렬 */
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+    @media screen and (max-width : 1200px) {
+      body {
+        trasform: scale(0.8); /* 80% 로 축소 */
+      }
+    }
+    
+    @media screen and (max-width : 900px) {
+      body { 
+        transform : scale(0.6); /* 60% 로 축소 */
+      }
+    }
+
+    header {
+      padding: 0 60px; /* 좌우 패딩 */
+      font-family: sans-serif;
+      width: 100%; /* 전체 너비 */
+      height: 140px; /* 헤더 높이 */
+      max-width: 1200px; /* 최대 너비 제한 */
+      display: flex; /* flex container */
+      justify-content: space-between; /* 요소들 사이에 공간 균등 배분 */
+      align-items: center; /* 세로축 중앙 정렬 */
+      position: fixed; /* 화면 상단에 고정 */
+      top: 0; /* 최상단에 위치 */
+    }
+
+    .logo {
+      font-size : 30px; /* 글자 크기 */
+      letter-spacing: 0.1em; /* 자간 설정 */
+      text-decoration: none; /* 링크 밑줄 제거 */
+      color: #000000; /* 검정색으로 설정 */
+    }
+
+    nav {
+      width: 380px; /* 네비게이션 너비 */
+      transform: translateX(-45px); /* 왼쪽으로 45px 으로 이동 */
+    }
+
+    nav ul {
+      display: flex; /* flex container */
+      justify-content: space-between; /* 요소들 사이 공간 균등 배분 */
+      align-items: center; /* 세로축 중앙 정렬 */
+      font-size: 20px; /* 글자 크기 */
+      letter-spacing: 0.1em; /* 자간 */
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color : #000000;
+      padding: 0 5px;
+    }
+
+    nav ul li a:hover {
+      font-weight : 800; /* hover 시 글자 두께 변경 */
+      color : #e86a3c; /* hover 시 색상 변경 */
+    }
+
+    .link {
+      width : 100px;
+    }
+    
+    .link ul {
+      position : fixed;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    .link img {
+      width : 24px;
+      height : 24px;
+    }
+    section {
+      width : 100%;
+      max-width: 1300px;
+    }
+
+    /* home */
+    .home_text.eng {
+      padding-bottom : 5%;
+    }
+
+    .home {
+      height : 100vh; /* viewport 높이 */
+      display: flex;
+      justify-content : center; /* 가로축 중앙 정렬 */
+      align-items : center; /* 세로축 중앙 정렬 */
+    }
+
+    .home_picture {
+      width : 288px; /* image 너비 */
+      height : 288px; /* image 높이 */
+      border-radius : 15px; /* 모서리 둥글게 */
+      margin : 0 30px; /* 좌우 여백 */
+    }
+
+    .home_text {
+      width : 100%;
+      text-align: center;
+      cursor: initial;
+      display : flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .home_text p {
+      margin-bottom : 17px;
+      font-size : 18px;
+      color : #30333b;
+    }
+
+    .home_text p:last-child {
+      margin : 0;
+    }
+
+    .home_text p span {
+      background-color: #ffda58;
+      padding: 0 3px;
+      font-weight: 500;
+    }
+
+    .home_text p span:hover {
+      color : #ff6258;
+      background-color : inherit;
+    }
+
+    /* about */
+    .about {
+      border-top : 2px solid #cacaca; /* 상단 경계선 */
+    }
+
+    .about_me,
+    .about_games,
+    .about_major,
+    .about_sports,
+    .about_singing {
+      width : 100%;
+      height : 100vh;
+      display : flex;
+      justify-content: center;
+      align-items: center;
+      border-bottom: 2px solid #cacaca;
+    }
+    
+    .about_me img,
+    .about_games img,
+    .about_major img,
+    .about_sports img,
+    .about_singing img {
+      width : 400px;
+      border-radius : 5px;
+      margin-right : 30px;
+    }
+
+    .about_me img:last-child {
+      margin-right : 0;
+    }
+
+    /* footer */
+    footer {
+      width : 100%;
+      background-color : #f5f5f5;
+      height : 200px;
+      display: flex;
+      flex-direction: column;
+      justify-content : center;
+      align-items: center;
+    }
+
+    footer ul {
+      display : flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    footer ul li p,
+    footer ul li a {
+      margin-bottom : 5px;
+      font-size: 13px;
+      color : #949497;
+    }
+
+    /* aside */
+    aside {
+      width : 50px;
+      height : 100vh;
+      position : fixed;
+      top : 0;
+      left : 0;
+      display : flex;
+      align-items: center;
+      z-index: 100;
+    }
+
+    aside ul li {
+      font-size : 30px;
+      margin-bottom : 30px;
+    }
+
+    aside ul li:hover{
+      transform : scale(1.3);
+    }
+
+    /* 위치 알림 */
+    .quick-icons li {
+      display : flex;
+      flex-direction: row;
+      align-items: center;
+    }
+
+    .quick-icons li::before {
+      content : "";
+      display : inline-block;
+      width : 7px;
+      height : 7px;
+      border-radius : 50%;
+      margin-right : 10px;
+    }
+
+    .quick-icons li.icon-active::before {
+      background-color: #e24849;
+    }
+
+    /* home, footer 보일 때 icons 비활성 */
+
+    .quick-icons.show-off {
+      visibility : hidden;
+    }
+
+    /* pop up */
+    .popup_overlay {
+      display : none; /* 기본적으로 숨김 */
+      position : fixed; /* 화면에 고정 */
+      top : 0;
+      left : 0;
+      width : 100%;
+      height : 100%;
+      background-color : rgba(0, 0, 0, 0.8); /* 반투명 배경 */
+      z-index: 1000; /* 최상단에 표시 */
+      justify-content: center;
+      align-items: center;
+    }
+
+    .popup_content {
+      position : relative; /* 상대 위치 */
+      max-width: 80%;
+      max-height: 80vh;
+      background-color: white;
+      padding : 20px;
+      border-radius: 10px;
+      text-align: center;
+      font-family : 'Noto Sans KR', sans-serif; /* 기본 폰트 설정 */
+    }
+
+    .popup_img {
+      max-width: 100%;
+      max-height: 60vh;
+      object-fit: contain;
+    }
+
+    .popup_description {
+      margin-top : 20px;
+      color : #333;
+      font-size : 16px;
+      line-height : 1.8;
+      font-weight : 300; /* 더 가벼운 웨이트 */
+      word-break : keep-all; /* 한글 단어 단위 줄바꿈 */
+      padding: 0 20px;
+    }
+
+    .close_popup {
+      position : absolute;
+      top : -5px;
+      right : 0px; /* 닫기 버튼이 사진이랑 안겹치고 잘보이게 위치 조정 */
+      font-size : 24px;
+      color : #666;
+      cursor : pointer;
+      background : none;
+      border : none;
+      padding : 5px;
+      font-family: Arial, sans-serif; /* 닫기 버튼용 폰트 */
+    }
+
+    .close_popup:hover {
+      color : #000;
+    }
+
+    /* img 내 hover 효과 추가 */
+    .about img {
+      cursor : pointer;
+      transition : transform 0.3s ease;
+    }
+
+    .about img:hover {
+      transform : scale(1.05);
+    }
+  </style>
+
+</head>
+<body id="home">
+  <header>
+    <a href="self-introduction.html" class="logo">KIHYUN</a>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="./project.html">Project</a></li>
+      </ul>
+    </nav>
+    <div class="link">
+      <a 
+        href="https://github.com/rnsjrlgus/WebProject_01.git"
+        target="_blank"
+        title="go github"
+        ><img src="../imgs/github.png" alt="Github"
+      ></a>
+      <a 
+        href="https://www.tistory.com/"
+        target="_blank" title="go tistory"
+        ><img src="../imgs/tistory.png" alt="Blog"
+      ></a>
+    </div>
+    </header>
+    <aside>
+      <ul class="quick-icons">
+        <li><a href="#home">👋</a></li>
+        <li><a href="#about_games">🎮</a></li>
+        <li><a href="#about_major">🧑🏻‍💻</a></li>
+        <li><a href="#about_sports">⚽️</a></li>
+        <li><a href="#about_singing">🎤</a></li>
+      </ul>
+    </aside>
+
+    <section class="home">
+      <div class = "home_text eng">
+        <p>
+          Hello! I am <a href="#me"><span>Kihyun Kwon</span></a> Nice to meet you.
+        </p>
+        <p>
+          I loved <a href="#about_games"><span>games</span></a> growing up 
+        </p>
+        <p>
+          so I studied <a href="#about_major"><span>Computer Science and Information Engineering</span></a> at Catholic University, with a strong interest in game development.
+        </p>
+        <p>
+          I'm a <a href="#about_sports"><span>sports lover</span></a>. I genuinely love being active and following sports.
+        </p>
+        <p>
+          I love <a href="#about_singing"><span>singing</span></a>. I've sung in front of many people, a wedding song.
+        </p>
+      </div>
+      <img class = "home_picture" src="../imgs/me1.JPEG" alt="my_picture">
+    </section>
+    <section class="about">
+      <div id="about_games" class="about_games">
+        <img src="../imgs/challenger.JPEG" alt="challenger"/>
+        <img src="../imgs/challenger2.jpg" alt="challenger"/>
+      </div>
+      <div id="about_major" class="about_major">
+        <img src="../imgs/univ1.jpg" alt="university"/>
+        <img src="../imgs/univ2.jpg" alt="university"/>
+        <img src="../imgs/univ3.jpg" alt="university"/>
+      </div>
+      <div id="about_sports" class="about_sports">
+        <img src="../imgs/football2.JPEG" alt="sport"/>
+        <img src="../imgs/sports1.jpg" alt="sport"/>
+        <img src="../imgs/sports2.jpg" alt="sport"/>
+      </div>
+      <div id="about_singing" class="about_singing">
+        <img src="../imgs/singing1.jpg" alt="singing"/>
+        <img src="../imgs/singing1.jpg" alt="singing"/>
+        <img src="../imgs/singing1.jpg" alt="singing"/>
+      </div>
+    </section>
+    <footer>
+      <ul>
+        <li>
+          <a href="mailto:rlgus1114@gmail.com" traget="_top"
+          >ⓒ KihyunKwon.</a
+          >
+        </li>
+      </ul>
+    </footer>
+
+    <div class="popup_overlay">
+      <div class="popup_content">
+        <button class="close_popup">&times;</button>
+        <img class="popup_img" src="" alt="Enlarged image">
+        <p class="popup_description"></p>
+      </div>
+    </div>
+
+    <script>
+      // 이미지 설명 데이터
+      const imageDescriptions = {
+        'challenger.JPEG' : '리그오브레전드 게임에서 최상위 등급인 챌린저 티어에 달성했습니다.',
+        'challenger2.jpg' : '리그오브레전드 게임에서 최상위 등급인 챌린저 티어에 달성했습니다.',
+        'univ1.jpg' : '교내에서 제가 예쁘다 생각하는 공간입니다',
+        'univ2.jpg' : '강의 듣고 집가는 학교 전경입니다',
+        'univ3.jpg' : '시험기간의 도서관 모습입니다',
+        'football2.JPEG': '축구와 풋살을 즐기며, 플랩풋볼로 팀을 구해 간간이 즐깁니다.',
+        'sports1.jpg': '실내 배드민턴장에서 친구들과 배드민턴을 즐겨했습니다.',
+        'sports2.jpg': '여의도공원에서 농구를 즐겨했습니다.',
+        'singing1.jpg': '결혼식 축가를 불러주었습니다.'
+      };
+
+      // 이미지 클릭 이벤트 설정
+      document.querySelectorAll('.about img').forEach(img => {
+        img.addEventListener('click', function() {
+          const overlay = document.querySelector('.popup_overlay');
+          const popupImg = document.querySelector('.popup_img');
+          const description = document.querySelector('.popup_description');
+
+          // 이미지 소스에서 파일명 추출
+          const filename = this.src.split('/').pop();
+
+          popupImg.src = this.src;
+          popupImg.alt = this.alt;
+          description.textContent = imageDescriptions[filename] || '이미지에 대한 설명이 없습니다.';
+          overlay.style.display = 'flex';
+        });
+      });
+
+      // 팝업 닫기 버튼 이벤트
+      document.querySelector('.close_popup').addEventListener('click', function() {
+        document.querySelector('.popup_overlay').style.display = 'none';
+      });
+
+      // 오버레이 클릭 시 팝업 닫기
+      document.querySelector('.popup_overlay').addEventListener('click', function(e) {
+        if (e.target === this) {
+          this.style.display = 'none';
+        }
+      });
+
+      // ESC 키로 팝업 닫기
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          document.querySelector('.popup_overlay').style.display = 'none';
+        }
+      });
+    </script>
+</body>
+</html>
