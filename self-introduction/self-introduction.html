@@ -16,26 +16,12 @@
     }
 
     body {
-      transform-origin : top left; /* 축소 기준을 좌상단으로 설정 */
-      transform : scale(1); /* 기본 크기 */
       width: 100%; /* 전체 너비 사용 */
       display: flex; /* flex container 로 설정 */
       flex-direction: column; /* 세로 방향 정렬 */
       justify-content: center; /* 가로축 중앙 정렬 */
       align-items: center; /* 세로축 중앙 정렬 */
       font-family: 'Times New Roman', Times, serif;
-    }
-
-    @media screen and (max-width : 1200px) {
-      body {
-        trasform: scale(0.8); /* 80% 로 축소 */
-      }
-    }
-    
-    @media screen and (max-width : 900px) {
-      body { 
-        transform : scale(0.6); /* 60% 로 축소 */
-      }
     }
 
     header {
